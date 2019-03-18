@@ -13,6 +13,7 @@ import {
 
 const initialState = {
     requests: [],
+    activeRequest: null,
     error: null,
     loggingIn: false,
     fetchingRequests: false,
