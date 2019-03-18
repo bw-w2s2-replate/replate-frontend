@@ -2,7 +2,7 @@ import {
     LOGIN_START,
     GET_REQUESTS_START,
     GET_REQUESTS_SUCCESS,
-    GET_REQUEST_FAILURE,
+    GET_REQUESTS_FAILURE,
     ADD_REQUEST_SUCCESS,
     ADD_REQUEST_FAILURE,
     UPDATE_REQUEST_SUCCESS,
@@ -44,7 +44,7 @@ const reducer = (state = initialState, action) => {
                 requests: action.payload
             };
         }
-        case GET_REQUEST_FAILURE: {
+        case GET_REQUESTS_FAILURE: {
             return {
                 ...state,
                 error: '',
@@ -96,5 +96,9 @@ const reducer = (state = initialState, action) => {
                 deletingRequest: false
             }
         }
+        default: 
+        return state;
     }
-}
+};
+
+export default reducer;
