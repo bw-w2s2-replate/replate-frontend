@@ -1,0 +1,33 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register-input {
+   padding: 5px; 
+   margin-bottom: 20px;
+   border-radius: 15px;
+}
+
+.register-button {
+    width:50%;
+    border: none;
+    color: white;
+    background-color: darkblue;
+    border-radius: 15px;
+    padding: 15px;
+
+}
+
+.register-q-a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

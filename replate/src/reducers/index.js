@@ -1,5 +1,6 @@
 import {
     LOGIN_START,
+    REGISTER_START,
     GET_REQUESTS_START,
     GET_REQUESTS_SUCCESS,
     GET_REQUESTS_FAILURE,
@@ -15,6 +16,7 @@ const initialState = {
     requests: [],
     activeRequest: null,
     error: null,
+    registering: false,
     loggingIn: false,
     fetchingRequests: false,
     addingRequest: false,
@@ -28,6 +30,12 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 loggingIn: true
+            };
+        }
+        case REGISTER_START: {
+            return {
+                ...state,
+                registering: true
             };
         }
         case GET_REQUESTS_START: {
