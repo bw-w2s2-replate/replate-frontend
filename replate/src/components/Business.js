@@ -2,13 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 
+import './Business.css';
+
 class Business extends React.Component {
     render() {
     
 
     return(
         <div>
-        <nav>
+        <nav className ="business-nav">
             <NavLink to = "/business">Home</NavLink>
             <NavLink to ="/request-form">{`${this.props.activeRequest ? 'Update' : 'Add'}Request`}</NavLink>
         </nav>
