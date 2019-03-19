@@ -4,9 +4,11 @@ import Login from './components/Login';
 import Register from './components/Register';
 import PrivateRoute from './components/PrivateRoute';
 import Business from './components/Business';
-import Request from './components/Request';
+import BRequest from './components/BRequest';
 import RequestForm from './components/RequestForm';
 import Volunteer from './components/Volunteer';
+import VRequest from './components/VRequest';
+import Accepted from  './components/Accepted';
 
 
 import './App.css';
@@ -17,12 +19,14 @@ class App extends Component {
       <div className="App">
        <Router>
          <h1>REplate</h1>
-         <Route path = "/login" component = {Login} />
+         <Route exact path = "/" component = {Login} />
          <Route path = "/register" component = {Register} />
          <PrivateRoute exact path = "/business" component ={Business} />
-         <PrivateRoute path = "/business/:id" component ={Request} />
+         <PrivateRoute path = "/business/:id" component ={BRequest} />
          <PrivateRoute path = "/request-form" component = {RequestForm} />
-         <PrivateRoute path = "/volunteer" component = {Volunteer} />
+         <PrivateRoute exact path = "/volunteer" component = {Volunteer} />
+         <PrivateRoute path = "/volunteer/:id" component ={VRequest} />
+         <PrivateRoute path = "/accepted-requests" component ={Accepted} />
        </Router>
       </div>
     );

@@ -17,7 +17,7 @@ class Request extends React.Component {
             <h3>{request.quantity}</h3>
             <h3>{request.type}</h3>
             <h5>{request.expiration}</h5>
-            <button onClick ={e=> this.props.deleteRequest(e, request.id)}></button>
+            <button onClick ={e=> this.props.deleteRequest(e, request.id)}>Delete Request</button>
             {/* <button onClick= {e => props.setUpdateForm(e, request)}></button> */}
         </div>
     )
