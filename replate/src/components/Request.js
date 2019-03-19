@@ -5,7 +5,7 @@ import { deleteRequest } from '../actions'
 const Request = () => {
     const request = props.requests.find(request => `${request.id}` === props.match.params.id)
 
-    if(!friend) {
+    if(!request) {
         return <h3>Loading Request...</h3>
     }
 
@@ -16,12 +16,16 @@ const Request = () => {
             <h3>{request.type}</h3>
             <h5>{request.expiration}</h5>
             <button onClick ={e=> props.deleteRequest(e, request.id)}></button>
-            <button onClick= {e => props.setUpdateForm(e, request)}></button>
+            {/* <button onClick= {e => props.setUpdateForm(e, request)}></button> */}
         </div>
     )
 }
 
+const mapStateToProps = state => ({
+    requests: state.requests
+})
+
 export default connect(
     mapStateToProps,
-    { deleteRequest, setUpdateForm }
+    { deleteRequest }
 )(Request);
