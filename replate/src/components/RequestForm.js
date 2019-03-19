@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import { addRequest, updateRequest } from '../actions';
 
+import './RequestForm.css'
+
 class RequestForm extends React.Component {
     state = {
         request: this.props.activeRequest || {
@@ -51,38 +53,38 @@ class RequestForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>{`${this.props.activeRequest ? 'Update' : 'Add'}Request`}</h1>
-                <form onSubmit = {this.handleSubmit}>
-                <input 
+            <div className = "add-request">
+                <h1 className = "request-form-title">{`${this.props.activeRequest ? 'Update' : 'Add'} Request`}</h1>
+                <form className ="request-form"onSubmit = {this.handleSubmit}>
+                <input className="request-form-input"
                 type = 'text'
                 name = 'location'
                 onChange = {this.handleChanges}
                 placeholder = 'Location'
                 value = {this.state.request.location}
                 />
-                <input 
+                <input className="request-form-input"
                 type = 'text'
                 name = 'quantity'
                 onChange = {this.handleChanges}
                 placeholder = 'Quantity'
                 value = {this.state.request.quantity}
                 />
-                <input 
+                <input className="request-form-input"
                 type = 'text'
                 name = 'type'
                 onChange = {this.handleChanges}
                 placeholder = 'Type of Food'
                 value = {this.state.request.type}
                 />
-                <input 
+                <input className="request-form-input"
                 type = 'datetime-local'
                 name = 'expiration'
                 onChange = {this.handleChanges}
                 placeholder = 'Expiration'
                 value = {this.state.request.expiration}
                 />
-                <button>{`${this.props.activeRequest ? 'Update' : 'Add'}Request`}</button>
+                <button className ="request-form-btn">{`${this.props.activeRequest ? 'Update' : 'Add'}Request`}</button>
                 </form>
             </div>
         )
