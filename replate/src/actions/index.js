@@ -18,7 +18,7 @@ export const login = creds => dispatch => {
     });
 };
 
-export const getRequests = () => {
+export const getRequests = () => dispatch => {
     dispatch ({ types: GET_REQUESTS_START });
 
     axios
@@ -48,7 +48,7 @@ export const addRequest = request => dispatch => {
     });
 };
 
-export const deleteRequest = id => {
+export const deleteRequest = id => dispatch => {
 
     axios
     .delete(`${id}`, {
