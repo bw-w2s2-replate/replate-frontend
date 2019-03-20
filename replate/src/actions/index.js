@@ -49,7 +49,8 @@ export const getRequests = () => dispatch => {
 };
 
 export const addRequest = request => dispatch => {
-
+    const foodExp = request.food_expiration
+    request.food_expiration = new Date(foodExp)
     axios
     .post (apiBaseUrl + '/api/requests/create', request, {
         headers: { Authorization: localStorage.getItem('token') }

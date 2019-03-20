@@ -27,12 +27,31 @@ class RequestForm extends React.Component {
 
     handleChanges = e => {
         e.persist();
-        this.setState(prevState => ({
-            request: {
-                ...prevState.request,
-                [e.target.name]: e.target.value
-            }
-        }));
+        // e.preventDefault();
+        // if (e.target.name === 'food_expiration') {
+        //     const expVal = new Date(e.target.value)
+        //     this.setState({
+        //         request: {
+        //             ...this.state,
+        //             food_expiration: expVal
+        //         }
+        //     });
+        // if (e.target.name === 'food_quantity') {
+        //     const quantity = Number(e.target.value) 
+        //     this.setState({
+        //         request: {
+        //             ...this.state,
+        //             food_quantity: quantity
+        //         }
+        //     });
+        // } else {
+            this.setState({
+                request: {
+                    ...this.state,
+                    [e.target.name]: e.target.value
+                }
+            });
+        // }
     }
 
     handleSubmit = e => {
@@ -64,7 +83,7 @@ class RequestForm extends React.Component {
         return (
             <div className = "add-request">
                 <h1 className = "request-form-title">{`${this.props.activeRequest ? 'Update' : 'Add'} Request`}</h1>
-                <form className ="request-form"onSubmit = {this.addRequest}>
+                <form className ="request-form" onSubmit = {this.handleSubmit}>
                 <input className="request-form-input"
                 type = 'text'
                 name = 'food_location'
