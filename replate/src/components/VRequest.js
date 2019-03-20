@@ -12,10 +12,10 @@ class VRequest extends React.Component {
 
         return (
             <div>
-                <h1>{request.location}</h1>
-                <h3>{request.quantity}</h3>
-                <h3>{request.type}</h3>
-                <h5>{request.expiration}</h5>
+                <h1>{request.food_location}</h1>
+                <h3>{request.food_quantity}</h3>
+                <h3>{request.food_type}</h3>
+                <h5>{request.food_expiration}</h5>
                 <button>Accept Request</button>
             </div>
         )

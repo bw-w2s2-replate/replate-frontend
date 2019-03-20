@@ -1,10 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
+import { getRequests } from '../actions';
 
 import './Business.css';
 
 class Business extends React.Component {
+
+    componentDidMount(){
+        this.props.getRequests();
+    }
+
     render() {
     
 
@@ -18,10 +24,10 @@ class Business extends React.Component {
         {this.props.requests.map(request => (
             <Link to = {`/business/${request.id}`} key={request.id}>
                 <div>
-                    <h1>{request.location}</h1>
-                    <h3>{request.quantity}</h3>
-                    <h3>{request.type}</h3>
-                    <h5>{request.expiration}</h5>
+                    <h1>{request.food_location}</h1>
+                    <h3>{request.food_amount}</h3>
+                    <h3>{request.food_type}</h3>
+                    {/* <h5>{request.expiration}</h5> */}
                 </div>
             </Link>
         ))}
@@ -37,5 +43,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    {}
+    { getRequests }
 )(Business);

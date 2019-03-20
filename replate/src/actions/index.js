@@ -33,10 +33,10 @@ export const login = creds => dispatch => {
 };
 
 export const getRequests = () => dispatch => {
-    dispatch ({ types: GET_REQUESTS_START });
+    dispatch ({ type: GET_REQUESTS_START });
 
     axios
-    .get('', {
+    .get(apiBaseUrl + '/api/requests/all', {
         headers: { Authorization: localStorage.getItem('token') }
     })
     .then(res => {
@@ -51,7 +51,7 @@ export const getRequests = () => dispatch => {
 export const addRequest = request => dispatch => {
 
     axios
-    .post ('', request, {
+    .post (apiBaseUrl + '/api/requests/create', request, {
         headers: { Authorization: localStorage.getItem('token') }
     })
     .then(res => {

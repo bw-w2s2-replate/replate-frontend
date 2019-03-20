@@ -9,10 +9,10 @@ import './RequestForm.css'
 class RequestForm extends React.Component {
     state = {
         request: this.props.activeRequest || {
-            location: '',
-            quantity: '',
-            type: '',
-            expiration: ''
+            food_location: '',
+            food_quantity: '',
+            food_type: '',
+            food_expiration: ''
         }
     };
 
@@ -26,6 +26,7 @@ class RequestForm extends React.Component {
     }
 
     handleChanges = e => {
+        e.persist();
         this.setState(prevState => ({
             request: {
                 ...prevState.request,
@@ -43,10 +44,10 @@ class RequestForm extends React.Component {
         }
         this.setState({
             request: {
-                location: '',
-                quantity: '',
-                type: '',
-                expiration: ''
+                food_location: '',
+                food_quantity: '',
+                food_type: '',
+                food_expiration: ''
             }
         });
     }
@@ -58,31 +59,31 @@ class RequestForm extends React.Component {
                 <form className ="request-form"onSubmit = {this.handleSubmit}>
                 <input className="request-form-input"
                 type = 'text'
-                name = 'location'
+                name = 'food_location'
                 onChange = {this.handleChanges}
                 placeholder = 'Location'
-                value = {this.state.request.location}
+                value = {this.state.request.food_location}
                 />
                 <input className="request-form-input"
                 type = 'text'
-                name = 'quantity'
+                name = 'food_quantity'
                 onChange = {this.handleChanges}
                 placeholder = 'Quantity'
-                value = {this.state.request.quantity}
+                value = {this.state.request.food_quantity}
                 />
                 <input className="request-form-input"
                 type = 'text'
-                name = 'type'
+                name = 'food_type'
                 onChange = {this.handleChanges}
                 placeholder = 'Type of Food'
-                value = {this.state.request.type}
+                value = {this.state.request.food_type}
                 />
                 <input className="request-form-input"
                 type = 'datetime-local'
-                name = 'expiration'
+                name = 'food_expiration'
                 onChange = {this.handleChanges}
                 placeholder = 'Expiration'
-                value = {this.state.request.expiration}
+                value = {this.state.request.food_expiration}
                 />
                 <button className ="request-form-btn">{`${this.props.activeRequest ? 'Update' : 'Add'}Request`}</button>
                 </form>
