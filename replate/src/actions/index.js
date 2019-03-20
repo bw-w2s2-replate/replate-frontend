@@ -65,7 +65,7 @@ export const addRequest = request => dispatch => {
 export const deleteRequest = id => dispatch => {
 
     axios
-    .delete(`${id}`, {
+    .delete(apiBaseUrl+`/api/requests/${id}`, {
         headers: { Authorization: localStorage.getItem('token') }
     })
     .then(res => {
