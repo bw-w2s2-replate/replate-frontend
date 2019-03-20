@@ -13,10 +13,10 @@ class Request extends React.Component {
 
     return (
         <div>
-            <h1>{request.location}</h1>
-            <h3>{request.quantity}</h3>
-            <h3>{request.type}</h3>
-            <h5>{request.expiration}</h5>
+            <h1>{request.food_location}</h1>
+            <h3>{request.food_amount}</h3>
+            <h3>{request.food_type}</h3>
+            {/* <h5>{request.expiration}</h5> */}
             <button onClick ={e=> this.props.deleteRequest(e, request.id)}>Delete Request</button>
             {/* <button onClick= {e => props.setUpdateForm(e, request)}></button> */}
         </div>
