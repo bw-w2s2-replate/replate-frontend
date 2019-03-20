@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+export const REGISTER_START = 'REGISTER_START'
 export const LOGIN_START = 'LOGIN_START';
 export const GET_REQUESTS_START = 'GET_REQUESTS_START';
 export const GET_REQUESTS_SUCCESS = 'GET_REQUESTS_SUCCESS';
@@ -11,9 +12,22 @@ export const UPDATE_REQUEST_FAILURE = 'UPDATE_REQUEST_FAILURE';
 export const DELETE_REQUEST_SUCCESS = 'DELETE_REQUEST_SUCCESS';
 export const DELETE_REQUEST_FAILURE = 'DELETE_REQUEST_FAILURE';
 
+const apiBaseUrl = process.env.NODE_ENV === 'production' ? 'https://bw2s2-replate.herokuapp.com'  : 'http://localhost:5000';
+
+export const register = creds => dispatch => {
+    dispatch ({ type: REGISTER_START });
+    return axios.post(apiBaseUrl + '/api/register', creds)
+    .then(res => {
+        console.log(res)
+    })
+    .catch(err => {
+        console.log(err)
+    });
+}
+
 export const login = creds => dispatch => {
     dispatch ({ type: LOGIN_START });
-    return axios.post('', creds).then(res => {
+    return axios.post(apiBaseUrl + '/api/login', creds).then(res => {
         localStorage.setItem('token', res.data.payload);
     });
 };

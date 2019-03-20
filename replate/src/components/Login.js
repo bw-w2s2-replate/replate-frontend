@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import { login } from '../actions';
 
+import './Login.css'
+
 class Login extends React.Component {
     state = {
         credentials: {
@@ -24,32 +26,34 @@ class Login extends React.Component {
     login = e => {
         e.preventDefault();
         this.props.login(this.state.credentials).then(() => {
-            this.props.history.push(``);
+            this.props.history.push('/business');
         });
     }
 
     render() {
         return (
-            <div>
-          <form onSubmit ={this.login}>
-            <input
+            <div className = "login">
+          <form className = "login-form"onSubmit ={this.login}>
+            <input className = "login-input"
             type = 'text'
             name = 'username'
             value= {this.state.credentials.username}
             onChange={this.handleChanges}
             placeholder = 'Username'
             />
-            <input
+            <input className = "login-input"
             type = 'password'
             name = 'password'
             value = {this.state.credentials.password}
             onChange = {this.handleChanges}
-            placeholder = 'password'
+            placeholder = 'Password'
             />
-            <button>Log In</button>
+            <button className = "login-button">Log In</button>
           </form>
+          <div className ="login-q-a">
           <h4>Don't have an account?</h4>
           <Link to ="/register">Register Here!</Link>
+          </div>
             </div>
         )
     }
