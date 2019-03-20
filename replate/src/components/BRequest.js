@@ -3,6 +3,29 @@ import { connect } from 'react-redux';
 import { deleteRequest } from '../actions'
 
 class Request extends React.Component {
+
+    setUpdateForm = (e, request) => {
+        e.preventDefault();
+        this.setState({
+            activeRequest: request
+        });
+        this.props.history.push("/request-form")
+    };
+
+    deleteRequest = (e, id) => {
+        e.preventDefault();
+        this.props.deleteRequest(id)
+        .then(res => {
+            this.setState ({
+                requests: res.data
+            });
+            this.props.history.push("/business");
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+    }
    
     render() {
         const request = this.props.requests.find(req => `${req.id}` === this.props.match.params.id)
@@ -17,15 +40,16 @@ class Request extends React.Component {
             <h3>{request.food_amount}</h3>
             <h3>{request.food_type}</h3>
             {/* <h5>{request.expiration}</h5> */}
-            <button onClick ={e=> this.props.deleteRequest(e, request.id)}>Delete Request</button>
-            {/* <button onClick= {e => props.setUpdateForm(e, request)}></button> */}
+            <button onClick ={e=>this.deleteRequest(e, request.id)}>Delete Request</button>
+            <button onClick= {e=>this.setUpdateForm(e, request)}>Update Request</button>
         </div>
     )
     }
 }
 
 const mapStateToProps = state => ({
-    requests: state.requests
+    requests: state.requests,
+    activeRequest: state.activeRequest
 })
 
 export default connect(

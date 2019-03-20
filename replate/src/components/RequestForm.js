@@ -52,11 +52,19 @@ class RequestForm extends React.Component {
         });
     }
 
+    addRequest = (e) => {
+        e.preventDefault();
+        this.props.addRequest(this.state.request);
+        this.setState({ food_location: '', food_quantity: '', food_type: '', food_expiration: '' });
+            this.props.history.push("/business");
+      
+    };
+
     render() {
         return (
             <div className = "add-request">
                 <h1 className = "request-form-title">{`${this.props.activeRequest ? 'Update' : 'Add'} Request`}</h1>
-                <form className ="request-form"onSubmit = {this.handleSubmit}>
+                <form className ="request-form"onSubmit = {this.addRequest}>
                 <input className="request-form-input"
                 type = 'text'
                 name = 'food_location'
