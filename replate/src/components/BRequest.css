@@ -1,0 +1,15 @@
+.btn {
+  text-decoration: none;
+  background-color: darkblue;
+  color: white;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.request {
+  background-color: lightgrey;
+  border-radius: 15px;
+  text-align: center;
+  padding: 20px 40px;
+  margin: 10px;
+}
