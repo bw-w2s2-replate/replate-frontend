@@ -11,10 +11,10 @@ import App from "./App";
 
 import "./index.css";
 
-const reduxDevToolsHook =
-  typeof window !== "undefined" &&
-  window.__REDUX_DEVTOOLS_EXTENSION__ &&
-  window.__REDUX_DEVTOOLS_EXTENSION__();
+// const reduxDevToolsHook =
+//   typeof window !== "undefined" &&
+//   window.__REDUX_DEVTOOLS_EXTENSION__ &&
+//   window.__REDUX_DEVTOOLS_EXTENSION__();
 // const store = createStore(
 //     reducer,
 //     compose(
