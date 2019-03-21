@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { addRequest, updateRequest } from '../actions';
+import { addRequest } from '../actions';
 
 import './RequestForm.css';
 
@@ -55,11 +55,12 @@ class RequestForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        if (this.props.activeRequest) {
-            this.props.updateRequest(this.state.request);
-        } else {
+        // if (this.props.activeRequest) {
+        //     this.props.updateRequest(this.state.request);
+        // } else 
+        // {
             this.props.addRequest(this.state.request);
-        }
+        // }
         this.setState({
             request: {
                 food_location: '',
@@ -72,17 +73,17 @@ class RequestForm extends React.Component {
         setTimeout(() => this.props.history.push('/business'), 1000);
     };
 
-    addReq = e => {
-        e.preventDefault();
-        this.props.addRequest(this.state.request);
-        this.setState({ food_location: '', food_amount: '', food_type: '', food_expiration: '' });
-        this.props.history.push('/business');
-    };
+    // addReq = e => {
+    //     e.preventDefault();
+    //     this.props.addRequest(this.state.request);
+    //     this.setState({ food_location: '', food_amount: '', food_type: '', food_expiration: '' });
+    //     this.props.history.push('/business');
+    // };
 
     render() {
         return (
             <div className="add-request">
-                <h1 className="request-form-title">{`${this.props.activeRequest ? 'Update' : 'Add'} Request`}</h1>
+                <h1 className="request-form-title">Add Request</h1>
                 <form className="request-form" onSubmit={this.handleSubmit}>
                     <input
                         className="request-form-input"
@@ -117,7 +118,7 @@ class RequestForm extends React.Component {
                         placeholder="Expiration"
                         value={this.state.request.food_expiration}
                     />
-                    <button className="request-form-btn">{`${this.props.activeRequest ? 'Update' : 'Add'}Request`}</button>
+                    <button className="request-form-btn">Add Request</button>
                 </form>
             </div>
         );
@@ -126,9 +127,9 @@ class RequestForm extends React.Component {
 
 const mapStateToProps = state => ({
     activeRequest: state.activeRequest
-});
+})
 
 export default connect(
     mapStateToProps,
-    { addRequest, updateRequest }
+    { addRequest }
 )(RequestForm);

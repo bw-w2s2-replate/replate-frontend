@@ -1,4 +1,4 @@
-.business-nav {
+.volunteer-nav {
   display: flex;
   justify-content: space-evenly;
 }
@@ -29,6 +29,5 @@
 }
 
 .text {
-  text-decoration: none;
   color: darkblue;
 }
