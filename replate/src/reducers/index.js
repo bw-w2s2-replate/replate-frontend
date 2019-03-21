@@ -10,7 +10,7 @@ import {
     UPDATE_REQUEST_FAILURE,
     DELETE_REQUEST_SUCCESS,
     DELETE_REQUEST_FAILURE
-} from  '../actions';
+} from '../actions';
 
 const initialState = {
     requests: [],
@@ -57,30 +57,29 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: '',
-                fetchingRequests: false,
+                fetchingRequests: false
             };
         }
         case ADD_REQUEST_SUCCESS: {
             return {
                 ...state,
                 error: '',
-                addingRequest: true,
-                requests: action.payload
+                addingRequest: true
+                // requests: action.payload
             };
         }
         case ADD_REQUEST_FAILURE: {
             return {
                 ...state,
                 error: '',
-                addingRequest: false,
+                addingRequest: false
             };
         }
         case UPDATE_REQUEST_SUCCESS: {
             return {
                 ...state,
                 error: '',
-                updatingRequest: true,
-
+                updatingRequest: true
             };
         }
         case UPDATE_REQUEST_FAILURE: {
@@ -94,19 +93,18 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: '',
-                deletingRequest: true,
-
+                deletingRequest: true
             };
         }
         case DELETE_REQUEST_FAILURE: {
             return {
                 ...state,
-                error: '',
+                error: action.payload,
                 deletingRequest: false
-            }
+            };
         }
-        default: 
-        return state;
+        default:
+            return state;
     }
 };
 
